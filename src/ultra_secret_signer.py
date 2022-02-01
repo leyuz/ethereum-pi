@@ -5,10 +5,9 @@ but here it is getting it from internet
 import os
 from web3.auto.infura.rinkeby import w3
 
-"""Sign a transaction with private key"""
-
 
 def sign_transaction(transaction_dict: dict):
+    """Sign the transaction_dict with privatekey"""
     # ultra secret
     private_key = os.environ['FROM_PRIVATE_KEY']
 

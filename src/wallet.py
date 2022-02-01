@@ -1,14 +1,14 @@
 """wallet using rinkeby testnet"""
-from datetime import datetime, timezone
+from datetime import datetime
 from web3.auto.infura.rinkeby import w3
 import ultra_secret_signer
 
 
 def send_ether(to_address: str, send_amt_in_eth: str = None):
-
+    """Send ether to to_address, amount can be auto generated"""
     if (send_amt_in_eth is None):
         # the amount is automatically tied to UTC time (hour and minute )
-        # 0.0000mmss,e.g. 0.00002159 if sent on 21:59
+        # i.e., 0.00002159 if sent on 21:59
         now = datetime.now()
         send_amt_in_eth = float(f"0.0000{now.hour:02d}{now.minute:02d}")
 
@@ -44,6 +44,8 @@ def send_ether(to_address: str, send_amt_in_eth: str = None):
         print('Not connected to block chain. Exiting')
 
 
-"""simple test"""
+# as a simple test,
+# actual TO_ADDRESS should be from the camera QR code
 if __name__ == "__main__":
-    send_ether('0xd91ac3f8fbBb960d4e2698b4a55529159b567aFC')
+    TO_ADDRESS = '0xd91ac3f8fbBb960d4e2698b4a55529159b567aFC'
+    send_ether(TO_ADDRESS)
