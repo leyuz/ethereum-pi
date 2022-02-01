@@ -14,12 +14,14 @@ RUN apt-get install libzbar0 libzbar-dev -y
 RUN apt-get install git -h
 RUN pip3 install zbarlight web3
 RUN pip3 install ipykernel
+RUN pip3 install autopep8
+RUN pip3 install pylint
 RUN apt-get autoremove -y
 
 # ENV READTHEDOCS=True
 # RUN pip3 install picamera
 
 ENV LD_LIBRARY_PATH="/opt/vc/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-ENV PATH="$PATH:/opt/vc/bin"
+# ENV PATH="$PATH:/opt/vc/bin"
 COPY . /
 CMD ["python3"]
