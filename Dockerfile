@@ -11,7 +11,9 @@ RUN apt-get install python3-opencv -y
 RUN apt-get install python3-pip -y
 RUN apt-get install python3-qrtools -y
 RUN apt-get install libzbar0 libzbar-dev -y
-RUN pip3 install zbarlight 
+RUN apt-get install git -h
+RUN pip3 install zbarlight web3
+RUN pip3 install ipykernel
 RUN apt-get autoremove -y
 
 # ENV READTHEDOCS=True
