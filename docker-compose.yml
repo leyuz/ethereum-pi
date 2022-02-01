@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  python3:
+    build:
+      dockerfile: Dockerfile
+    image: leyu/arm32v7_bullseye
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      # - /dev:/dev
+      # - /opt/vc:/opt/vc
+      - ./src:/src
+    environment:
+      # - DISPLAY=$DISPLAY
+      - DISPLAY=:0.0
+    # devices:
+      # - /dev/vchiq:/dev/vchiq
+    # command: python3 -i /src/zbarlight_test.py
+    command: tail -F nothing
+    privileged: true
