@@ -1,6 +1,7 @@
 """wallet using rinkeby testnet"""
 from datetime import datetime
 from web3.auto.infura.rinkeby import w3
+
 import ultra_secret_signer
 
 
@@ -15,7 +16,7 @@ def send_ether(to_address: str, send_amt_in_eth: str = None):
     # def prepare_transaction
     if w3.isConnected():
         print('Connected to block chain.')
-        print(f'Preparing to send {send_amt_in_eth} eth, to {to_address}')
+        print(f'Preparing to send {send_amt_in_eth:.8f} eth, to {to_address}')
 
         transaction = dict(
             # nonce=new_nonce,  # transaction_count+1,
@@ -31,12 +32,12 @@ def send_ether(to_address: str, send_amt_in_eth: str = None):
         )
 
         signed_txn = ultra_secret_signer.sign_transaction(transaction)
-        print(f'Received signed transaction: {signed_txn}')
+        # print(f'Received signed transaction: {signed_txn}')
 
         # broadcast it!
-        print('Broadcasting...')
+        print('Broadcasting... ',end='')
         tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
-        print(f'Done! tx_hash is {tx_hash.hex()}')
+        print(f'Done!\ntx_hash is\n{tx_hash.hex()}')
         print(
             f'You can track it at https://rinkeby.etherscan.io/tx/{tx_hash.hex()}')
 

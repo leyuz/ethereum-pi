@@ -23,7 +23,9 @@ def sign_transaction(transaction_dict: dict):
     transaction_dict['nonce'] = nonce
     transaction_dict['from'] = address
 
-    print(f'Signing transaction {transaction_dict}')
+    # print(f'Signing transaction {transaction_dict}')
+    print(f'Signing transaction... ',end='')
     signed_txn = w3.eth.account.sign_transaction(transaction_dict, private_key)
-    print(f'Successfully signed as :{signed_txn}')
+    print('Done')
+    # print(f'Successfully signed as :{signed_txn}')
     return signed_txn

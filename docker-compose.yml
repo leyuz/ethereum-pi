@@ -14,6 +14,7 @@ services:
       # - DISPLAY=:0.0
       - WEB3_INFURA_PROJECT_ID=9bace87ec00f42df889831750a4dc80c
       - FROM_PRIVATE_KEY=b47bbf0fee55d72150de870a7e3649b867b59cba62b9e56179fd3c5081f092d1
+      - OPENCV_LOG_LEVEL=DISABLED
     # devices:
       # - /dev/vchiq:/dev/vchiq
     # command: python3 -it /src/qr_scanner.py
