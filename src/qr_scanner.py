@@ -12,11 +12,11 @@ def determine_if_show_preview():
         return False
 
 
-def scan():
+def scan(cap):
     print('Inialising keyboard')
     kb = KBHit()
     print('Initializing camera')
-    cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture(0)
     print('Initialization done.')
     try:
         show_preview = determine_if_show_preview()
@@ -34,11 +34,11 @@ def scan():
                 cv2.imshow("code detector", img)
                 if(cv2.waitKey(1) == ord("s")):
                     cv2.imwrite('/src/cap_s_cv2.jpg', img)
-                    return qr_code, img
+                    return qr_code[0].decode('ascii'), img
 
             if(qr_code is not None):
                 cv2.imwrite('/src/cap_qr.jpg', img)
-                return qr_code, img
+                return qr_code[0].decode('ascii'), img
             # display the image preview
 
             if kb.kbhit():
@@ -51,14 +51,16 @@ def scan():
                     return None, img
                 print(c)
     finally:
-        print('Releasing all resources')
+        # print('Releasing all resources')
         kb.set_normal_term()
         cap.release()
         cv2.destroyAllWindows()
-        print('Bye')
+        # print('Bye')
 
 
 if __name__ == "__main__":
     qr_code, img = scan()
+    print(type(qr_code))
     print('qr_code is ', qr_code)
-    print('image', img)
+    # print('image', img)
+
