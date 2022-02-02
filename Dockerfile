@@ -9,15 +9,17 @@ RUN apt-get -y update && apt-get -y upgrade
 
 RUN apt-get install python3-opencv -y
 RUN apt-get install python3-pip -y
-RUN apt-get install python3-qrtools -y
+# RUN apt-get install python3-qrtools -y
 RUN apt-get install libzbar0 libzbar-dev -y
-RUN apt-get install git -h
+# RUN apt-get install git -h
 
 RUN pip3 install zbarlight web3
+
+# development purpose
 RUN pip3 install ipykernel
 RUN pip3 install autopep8
 RUN pip3 install pylint
-RUN pip3 install sshkeyboard
+# RUN pip3 install sshkeyboard
 
 RUN apt-get autoremove -y
 
@@ -26,5 +28,4 @@ RUN apt-get autoremove -y
 
 ENV LD_LIBRARY_PATH="/opt/vc/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 # ENV PATH="$PATH:/opt/vc/bin"
-COPY . /
 CMD ["python3"]
