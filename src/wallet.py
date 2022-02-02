@@ -6,7 +6,7 @@ import ultra_secret_signer
 
 def send_ether(to_address: str, send_amt_in_eth: str = None):
     """Send ether to to_address, amount can be auto generated"""
-    if (send_amt_in_eth is None):
+    if send_amt_in_eth is None:
         # the amount is automatically tied to UTC time (hour and minute )
         # i.e., 0.00002159 if sent on 21:59
         now = datetime.now()
