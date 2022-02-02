@@ -3,7 +3,7 @@ services:
   backend:
     # build:
     #   dockerfile: Dockerfile
-    image: leyu/arm32v7_bullseye
+    image: leyumrdd/arm32v7_bullseye
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       # - /dev:/dev
