@@ -7,15 +7,15 @@ Instructions to user:
 4. Enable container's access to Pi Camera
     - One time setup `echo "SUBSYSTEM==\"vchiq\",MODE=\"0666\"" | sudo tee /etc/udev/rules.d/99-camera.rules`
     - Every reboot `xhost +local:`
-5. Clone this repo
-6. `cd ethereum-pi`
-
-6. run `docker-compose run backend`
-7. It will pull the image and run.
-8. Depends on where you issued the `docker-compose`, i.e. from a terminal in Pi's Desktop mode, or from an SSH terminal, a full graphical preivew or text-mode preview (quite laggy) may appear, automatically.
-9. Aim the Pi Camera at a QR code, representing a valid Etherum (ERC20) address
-10. Adjust the Camera and QR code at about 5cm to each other, the QR code will be captured and decoded.
-11. Follow the instruction on the screen, but the gist is:
+5. Below steps all are to be executed on the Pi via SSH or terminal on Desktop/VNC
+6. clone this repo
+7. `cd ethereum-pi`
+8. 6. run `docker-compose run backend`
+9. It will pull the image and run. (If you want to rebuild the image on Pi, pls read https://github.com/leyuz/ethereum-pi/blob/main/host-setup/buster)
+10. Depends on where you issued the `docker-compose`, i.e. from a terminal in Pi's Desktop mode, or from an SSH terminal, a full graphical preivew or text-mode preview (quite laggy) may appear, automatically.
+11. Aim the Pi Camera at a QR code, representing a valid Etherum (ERC20) address
+12. Adjust the Camera and QR code at about 5cm to each other, the QR code will be captured and decoded.
+13. Follow the instruction on the screen, but the gist is:
     - it will scan an ETH wallet's QR code
     - it will ask you whether you want to send some ether to that wallet (from testnet, not real ones ^_^)
     - the amount is auto generated, based on current UTC time (not Singapore time)
